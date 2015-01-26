@@ -42,7 +42,7 @@ package
 		private function onStageAdded(e:Event):void {
 			removeEventListener(Event.ADDED_TO_STAGE, onStageAdded);
 			
-			TMX.loadTMX("./Boulders/", "map.tmx", onTMXLoad); // Load the TMX map for use in the engine
+			TMX.loadTMX("./assets/Example/", "map3.tmx", onTMXLoad); // Load the TMX map for use in the engine
 		}
 		private function onTMXLoad(tmx:TMX):void {
 			this.tmx = tmx;
@@ -54,7 +54,7 @@ package
 			addChild(isoHill); // add the engine to starling
 			addPlugins(isoHill);
 			isoHill.start(); // start all the runtime logic
-			addChild(new Stats()); // Mrdoob's performance monitor
+			//addChild(new Stats()); // Mrdoob's performance monitor
 		}
 		private function addPlugins(isoHill:IsoHill):void {
 			var tmxPlugin:TMXPlugin = new TMXPlugin(tmx); // plugin to bind the TMX data to the engine
@@ -64,7 +64,7 @@ package
 				var layerName:String = layer.name;
 				var grid:GridDisplay = tmxPlugin.makeEmptyGridOfSize(i, layerName);
 				if (layerName.indexOf("earth")!=-1) grid.flatten(); // disable sorting and flatten the ground as it is not dynamic (speed improvement)
-				isoHill.addLayer(i, layerName, grid); // add the layer to the engine
+				isoHill.addLayer(i, grid); // add the layer to the engine
 			}
 			//isoHill.addPlugin(new XRayLayers());
 			isoHill.addPlugin(tmxPlugin); // adding the plugin

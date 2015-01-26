@@ -99,7 +99,7 @@ package fr.kouma.starling.utils
 		protected var nativeStage:flash.display.Stage;
  
 		protected var fontSize:Number = 10;
-		protected var fontFamily:String = "standard 07_55";
+		protected var fontFamily:String = "Tahoma";
  
 		[Embed(source = "standard_07_55.png")]
 		protected static const StandardAtlas:Class;
